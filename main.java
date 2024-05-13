@@ -1,3 +1,1 @@
 aaa
-bbbb*
-cc
