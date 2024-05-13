@@ -1,2 +1,0 @@
-int nb;
-caca
