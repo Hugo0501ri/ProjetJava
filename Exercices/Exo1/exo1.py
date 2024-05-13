@@ -1,5 +1,5 @@
 import math
 
-def sommeDeDeuxNombres(x,y):
-    return x+y
+def sommeDeDeuxNombres(x,u):
+    return x+u
 
