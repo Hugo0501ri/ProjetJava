@@ -1,26 +1,88 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.FileReader;
+
+
+// code qui lit le code py
 
 public class CodeFetcher {
-    public static void codefetcher(String[] args) {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            // Lecture du code Python saisi par l'utilisateur
-            System.out.println("Veuillez saisir du code Python (entrez 'exit' pour quitter) :");
-            String line;
+    public static void codeFetcher(String[] fileNames) {
+        try {
+            // Lecture du code Python à partir du fichier
             StringBuilder pythonCode = new StringBuilder();
-            while (!(line = reader.readLine()).equals("exit")) {
+            BufferedReader fileReader = new BufferedReader(new FileReader(fileNames[0]));
+            String line;
+            while ((line = fileReader.readLine()) != null) {
                 pythonCode.append(line).append("\n");
             }
+            fileReader.close();
 
-            // Affichage du code Python saisi par l'utilisateur
-            System.out.println("Code Python saisi :");
+            // Affichage du code Python lu
+            System.out.println("Code Python lu :");
             System.out.println(pythonCode.toString());
 
             // Exécution du code Python
-            Process process = Runtime.getRuntime().exec("python");
-            process.getOutputStream().write(pythonCode.toString().getBytes());
-            process.getOutputStream().close();
+            ProcessBuilder pb = new ProcessBuilder("python", "-c", pythonCode.toString());
+            Process process = pb.start();
+
+            // Lecture de la sortie de Python
+            BufferedReader pythonOutput = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            BufferedReader pythonError = new BufferedReader(new InputStreamReader(process.getErrorStream())); // Nouvelle ligne ajoutée
+
+            // Affichage de la sortie d'erreur de Python (si disponible)
+            String errorLine;
+            System.out.println("Erreur de Python :");
+            while ((errorLine = pythonError.readLine()) != null) {
+                System.out.println(errorLine);
+            }
+
+            // Lecture de la sortie de Python
+            String outputLine;
+            System.out.println("Sortie de Python :");
+            while ((outputLine = pythonOutput.readLine()) != null) {
+                System.out.println(outputLine);
+            }
+
+            // Fermeture des flux
+            pythonOutput.close();
+            pythonError.close(); // Fermeture du flux d'erreur
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+// code qui creer un fichier temporaire
+/*
+import java.io.*;
+
+public class CodeFetcher {
+    public static void codeFetcher(String[] fileNames) {
+        try {
+            // Lecture du code Python à partir du fichier
+            StringBuilder pythonCode = new StringBuilder();
+            BufferedReader fileReader = new BufferedReader(new FileReader(fileNames[0]));
+            String line;
+            while ((line = fileReader.readLine()) != null) {
+                pythonCode.append(line).append("\n");
+            }
+            fileReader.close();
+
+            // Création d'un fichier temporaire pour enregistrer le code Python
+            File tempFile = File.createTempFile("temp", ".py");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            writer.write(pythonCode.toString());
+            writer.close();
+
+            // Affichage du chemin du fichier temporaire
+            System.out.println("Fichier temporaire créé : " + tempFile.getAbsolutePath());
+
+            // Exécution du script Python depuis le fichier temporaire
+            ProcessBuilder pb = new ProcessBuilder("python", tempFile.getAbsolutePath());
+            Process process = pb.start();
 
             // Lecture de la sortie de Python
             BufferedReader pythonOutput = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -38,3 +100,4 @@ public class CodeFetcher {
         }
     }
 }
+*/
