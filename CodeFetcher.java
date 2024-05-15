@@ -1,14 +1,15 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.FileReader;
 
 public class CodeFetcher {
-    public static void codeFetcher(String[] fileNames) {
+    public static void codeFetcher(String[] filePaths) {
         try {
             // Lecture du code Python à partir du fichier
             StringBuilder pythonCode = new StringBuilder();
-            BufferedReader fileReader = new BufferedReader(new FileReader(fileNames[0]));
+            BufferedReader fileReader = new BufferedReader(new FileReader(filePaths[0]));
             String line;
             while ((line = fileReader.readLine()) != null) {
                 pythonCode.append(line).append("\n");
