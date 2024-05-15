@@ -15,10 +15,10 @@ public class Main {
         scanner.close();
 
         if (pythonCode.length() > 0) {
-            // Générer un nom de fichier unique (par exemple, basé sur l'horodatage)
-            String fileName = "code_" + System.currentTimeMillis() + ".py";
+            // Nom du fichier dans lequel le code sera enregistré ou modifié
+            String fileName = "exo1_utilisateur.py";
             
-            // Utiliser FileModifier pour écrire le code dans un fichier
+            // Utiliser FileModifier pour écrire ou ajouter le code dans le fichier
             FileModifier.writeToFile(fileName, pythonCode.toString());
         } else {
             System.out.println("Aucun code Python saisi.");
