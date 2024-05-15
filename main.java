@@ -24,7 +24,7 @@ public class Main {
             System.out.println("Aucun code Python saisi.");
         }
         String[] fileNames = {"Exercices/Exo1/exo1_utilisateur.py"}; // Remplacez "exo1.py" par le nom de votre fichier Python
-        CodeFetcher.codeFetcher(fileNames);
+        CodeRunner.runCodeFromFile(fileNames);
     }
 
 }
