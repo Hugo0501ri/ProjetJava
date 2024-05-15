@@ -23,7 +23,7 @@ public class CodeFetcher {
             System.out.println(pythonCode.toString());
 
             // Exécution du code Python
-            ProcessBuilder pb = new ProcessBuilder("python", "-c", pythonCode.toString());
+            ProcessBuilder pb = new ProcessBuilder("py", "-c", pythonCode.toString());
             Process process = pb.start();
 
             // Lecture de la sortie de Python
