@@ -1,4 +1,3 @@
-import math 
-def sommeDeDeuxNombres(x,y):
+def somme(x,y):
 	return x+y
-print(sommeDeDeuxNombres(2,2))
+print(somme(2,2))
