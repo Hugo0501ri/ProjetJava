@@ -22,20 +22,28 @@ public class ExerciseRunner {
                 CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 2:
-                // Java
-                // Ajoutez le code pour exécuter l'exercice 1 en Java
+                fileName = "exo1_utilisateur.java";
+                FileModifier.writeToFile(fileName, code);
+                fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.java"};
+                CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 3:
-                // JavaScript
-                // Ajoutez le code pour exécuter l'exercice 1 en JavaScript
+                fileName = "exo1_utilisateur.js";
+                FileModifier.writeToFile(fileName, code);
+                fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.js"};
+                CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 4:
-                // PHP
-                // Ajoutez le code pour exécuter l'exercice 1 en PHP
+                fileName = "exo1_utilisateur.php";
+                FileModifier.writeToFile(fileName, code);
+                fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.php"};
+                CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 5:
-                // C
-                // Ajoutez le code pour exécuter l'exercice 1 en C
+                fileName = "exo1_utilisateur.c";
+                FileModifier.writeToFile(fileName, code);
+                fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.c"};
+                CodeRunner.runCodeFromFiles(fileNames);
                 break;
             default:
                 System.out.println("Langage non pris en charge.");
