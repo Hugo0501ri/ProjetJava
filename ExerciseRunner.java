@@ -22,58 +22,32 @@ public class ExerciseRunner {
                 CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 2:
+                // Java
                 fileName = "exo1_utilisateur.java";
                 FileModifier.writeToFile(fileName, code);
                 fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.java"};
                 CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 3:
+                // Javascript
                 fileName = "exo1_utilisateur.js";
                 FileModifier.writeToFile(fileName, code);
                 fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.js"};
                 CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 4:
+                // PHP
                 fileName = "exo1_utilisateur.php";
                 FileModifier.writeToFile(fileName, code);
                 fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.php"};
                 CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 5:
+                // C
                 fileName = "exo1_utilisateur.c";
                 FileModifier.writeToFile(fileName, code);
                 fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.c"};
                 CodeRunner.runCodeFromFiles(fileNames);
-                break;
-            default:
-                System.out.println("Langage non pris en charge.");
-        }
-        private static void runExercise2(int languageChoice, String code) {
-        String fileName;
-        String[] fileNames;
-        switch (languageChoice) {
-            case 1:
-                // Python
-                fileName = "exo2_utilisateur.py";
-                FileModifier.writeToFile(fileName, code);
-                fileNames = new String[]{"Exercices/Exo2/exo2_utilisateur.py"};
-                CodeRunner.runCodeFromFiles(fileNames);
-                break;
-            case 2:
-                // Java
-                // Ajoutez le code pour exécuter l'exercice 1 en Java
-                break;
-            case 3:
-                // JavaScript
-                // Ajoutez le code pour exécuter l'exercice 1 en JavaScript
-                break;
-            case 4:
-                // PHP
-                // Ajoutez le code pour exécuter l'exercice 1 en PHP
-                break;
-            case 5:
-                // C
-                // Ajoutez le code pour exécuter l'exercice 1 en C
                 break;
             default:
                 System.out.println("Langage non pris en charge.");
