@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileModifier {
-    public static void writeToFile(String fileName, String content, String langageChoic) {
+    public static void writeToFile(String fileName, String content) {
         String filePath = "Exercices/Exo1/" + fileName; // Chemin du fichier
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(content);
