@@ -8,6 +8,7 @@ public class Main {
         // Choix de l'exercice
         System.out.println("Choisissez l'exercice :");
         System.out.println("1. Exercice 1");
+        System.out.println("1. Exercice 2");
         // Ajoutez d'autres exercices au besoin
 
         int exerciseChoice = scanner.nextInt();
