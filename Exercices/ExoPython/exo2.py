@@ -6,5 +6,5 @@ def factorielle(n):
 
 
 
-print(factorielle(nombre))
+
 
