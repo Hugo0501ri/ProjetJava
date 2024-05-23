@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int somme(x,y){
+int somme(int x, int y){
     return x+y;
 }
 
-void main(){
+int main(){
     printf("%i", somme(2,2));
     return 0;
 }
