@@ -34,7 +34,7 @@ public class ExerciseRunner {
                 // Javascript
                 fileName = "exo1_utilisateur.js";
                 FileModifier.writeToFile(fileName, code);
-                fileNames = new String[]{"Exercices/Exo1/exo1_utilisateur.js"};
+                fileNames = new String[]{"Exercices/ExoJs/exo1_utilisateur.js"};
                 CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 4:
@@ -78,7 +78,7 @@ public class ExerciseRunner {
                 // Javascript
                 fileName = "exo2_utilisateur.js";
                 FileModifier.writeToFile(fileName, code);
-                fileNames = new String[]{"Exercices/Exo2/exo2_utilisateur.js"};
+                fileNames = new String[]{"Exercices/ExoJs/exo2_utilisateur.js"};
                 CodeRunner.runCodeFromFiles(fileNames);
                 break;
             case 4:
