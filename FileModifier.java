@@ -9,36 +9,80 @@ public class FileModifier {
             case 1:
                 // Python
                 filePath = "Exercices/ExoPython/";
+                switch (exerciseChoice) {
+                    case 1:
+                        filePath += "Exo1PY/exo1_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    case 2:
+                        filePath += "Exo2PY/exo2_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    default:
+                        System.out.println("Exercice non pris en charge.");
+                    return;
+                }
                 break;
             case 2:
                 // Java
                 filePath = "Exercices/ExoJava/";
+                switch (exerciseChoice) {
+                    case 1:
+                        filePath += "Exo1Java/exo1_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    case 2:
+                        filePath += "Exo2Java/exo2_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    default:
+                        System.out.println("Exercice non pris en charge.");
+                    return;
+                }
                 break;
             case 3:
                 // Javascript
-                filePath = "Exercices/Exo1/";
+                filePath = "Exercices/ExoJs/";
+                switch (exerciseChoice) {
+                    case 1:
+                        filePath += "Exo1JS/exo1_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    case 2:
+                        filePath += "Exo2JS/exo2_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    default:
+                        System.out.println("Exercice non pris en charge.");
+                    return;
+                }
                 break;
             case 4:
                 // PHP
                 filePath = "Exercices/ExoPHP/";
+                switch (exerciseChoice) {
+                    case 1:
+                        filePath += "Exo1PHP/exo1_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    case 2:
+                        filePath += "Exo2PHP/exo2_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    default:
+                        System.out.println("Exercice non pris en charge.");
+                    return;
+                }
                 break;
             case 5:
                 // C
                 filePath = "Exercices/ExoC/";
+                switch (exerciseChoice) {
+                    case 1:
+                        filePath += "Exo1C/exo1_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    case 2:
+                        filePath += "Exo2C/exo2_utilisateur." + getFileExtension(languageChoice);
+                        break;
+                    default:
+                        System.out.println("Exercice non pris en charge.");
+                    return;
+                }
                 break;
             default:
                 System.out.println("Langage non pris en charge.");
-                return;
-        }
-        switch (exerciseChoice) {
-            case 1:
-                filePath += "exo1_utilisateur." + getFileExtension(languageChoice);
-                break;
-            case 2:
-                filePath += "exo2_utilisateur." + getFileExtension(languageChoice);
-                break;
-            default:
-                System.out.println("Exercice non pris en charge.");
                 return;
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
