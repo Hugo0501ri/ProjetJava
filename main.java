@@ -6,7 +6,7 @@ public class Main {
     /*public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         StringBuilder pythonCode = new StringBuilder(); 
-
+1
         // Choix de l'exercice
         System.out.println("Choisissez l'exercice :");
         System.out.println("1. Exercice 1");
