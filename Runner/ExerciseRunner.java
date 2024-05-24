@@ -117,14 +117,19 @@ public class ExerciseRunner {
         switch (languageChoice) {
             case 1:
                 return new PythonExerciseRunner();
+                break;
             case 2:
                 return new JavaExerciseRunner();
+                break;
             case 3:
                 return new JavaScriptExerciseRunner();
+                break;
             case 4:
                 return new PHPExerciseRunner();
+                break;
             case 5:
                 return new CExerciseRunner();
+                break;
             default:
                 System.out.println("Langage non pris en charge");
         }
