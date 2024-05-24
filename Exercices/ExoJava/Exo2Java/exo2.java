@@ -1,5 +1,5 @@
-public class exo2 {
-    public static void main(String[] args) {
+public class Exo2 {
+    public static void exo2(String[] args) {
         int n = Integer.parseInt(args[0]);
         int result = factorielle(n);
 
