@@ -151,7 +151,7 @@ public class CodeRunner {
         }
     }
 
-    private static LanguageExecutor getExecutor(String fileExtension) {
+    /*private static LanguageExecutor getExecutor(String fileExtension) {
         switch (fileExtension) {
             case "c":
                 return new CExecutor();
@@ -166,6 +166,23 @@ public class CodeRunner {
             default:
                 return null;
         }
+    }*/
+    private static LanguageExecutor getExecutor(String fileName) {
+        String extension = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();
+        switch (extension) {
+            case "java":
+                return new JavaExecutor();
+            case "py":
+                return new PythonExecutor();
+            case "js":
+                return new JavaScriptExecutor();
+            case "php":
+                return new PHPExecutor();
+            case "c":
+                return new CExecutor();
+            default:
+                return null;
     }
+}
 }
 
