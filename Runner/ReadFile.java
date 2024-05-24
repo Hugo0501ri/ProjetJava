@@ -13,8 +13,8 @@ public class ReadFile extends AbstractExerciseRunner {
 
     public static void main(String[] args) {
         ReadFile readFile = new ReadFile("txt", "chemin/du/fichier");
-        int exerciseNumber = 1; // Numéro de l'exercice à lire
-        String fileName = readFile.getFileName(exerciseNumber); // Nom du fichier à lire
+        int exerciseChoice = 1; // Numéro de l'exercice à lire
+        String fileName = readFile.getFileName(exerciseChoice); // Nom du fichier à lire
 
         BufferedReader reader = null;
 

@@ -9,7 +9,7 @@ public class Main {
         System.out.println("1. Exercice 1");
         System.out.println("2. Exercice 2");
 
-        int exerciseNumber = scanner.nextInt();
+        int exerciseChoice = scanner.nextInt();
         scanner.nextLine(); // Pour consommer la nouvelle ligne restante
 
         // Choix du langage
@@ -37,7 +37,7 @@ public class Main {
             }
 
             // Exécution de l'exercice
-            ExerciseRunner.runExercise(exerciseNumber, languageChoice, userCode.toString());
+            ExerciseRunner.runExercise(exerciseChoice, languageChoice, userCode.toString());
             
 
             // Demander à l'utilisateur s'il souhaite réessayer ou quitter
