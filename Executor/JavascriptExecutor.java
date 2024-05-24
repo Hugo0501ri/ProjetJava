@@ -1,3 +1,6 @@
+import java.io.IOException;
+
+
 public class JavaScriptExecutor extends AbstractLanguageExecutor {
     @Override
     public void compile(String jsFilePath) {

@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class PHPExecutor extends AbstractLanguageExecutor {
     @Override
     public void compile(String phpFilePath) {

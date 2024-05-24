@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class PythonExecutor extends AbstractLanguageExecutor {
     @Override
     public void compile(String pythonFilePath) {
