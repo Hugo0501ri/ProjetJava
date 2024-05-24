@@ -110,6 +110,7 @@ public class ExerciseRunner {
         runner.compile(fileName, code);
         String[] fileNames = runner.getFilePaths(exerciseChoice);
         runner.execute(fileNames);
+        
     }
 
     private static ExerciseRunnerInterface getRunner(int languageChoice) {
