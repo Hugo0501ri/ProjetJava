@@ -1,7 +1,9 @@
 import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         StringBuilder pythonCode = new StringBuilder(); 
 
@@ -39,5 +41,45 @@ public class Main {
         ExerciseRunner.runExercise(exerciseChoice, languageChoice, pythonCode.toString());
 
         scanner.close();
+    }*/
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder userCode = new StringBuilder();
+
+        // Choix de l'exercice
+        System.out.println("Choisissez l'exercice :");
+        System.out.println("1. Exercice 1");
+        System.out.println("2. Exercice 2");
+
+        int exerciseChoice = scanner.nextInt();
+        scanner.nextLine(); // Pour consommer la nouvelle ligne restante
+
+        // Choix du langage
+        System.out.println("Choisissez le langage :");
+        System.out.println("1. Python");
+        System.out.println("2. Java");
+        System.out.println("3. JavaScript");
+        System.out.println("4. PHP");
+        System.out.println("5. C");
+
+        int languageChoice = scanner.nextInt();
+        scanner.nextLine(); // Pour consommer la nouvelle ligne restante
+
+        // Récupération du code saisi par l'utilisateur
+        System.out.println("Veuillez saisir votre code (appuyez sur Entrée pour terminer la saisie) :");
+        while (true) {
+            String line = scanner.nextLine();
+            if (line.isEmpty()) {
+                break;
+            }
+            userCode.append(line).append("\n"); // Ajout des lignes de code à userCode
+        }
+
+        // Exécution de l'exercice
+        ExerciseRunner.runExercise(exerciseChoice, languageChoice, userCode.toString());
+
+        scanner.close();
     }
 }
+
+
