@@ -2,6 +2,9 @@ public class exo2 {
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         int result = factorielle(n);
+
+        //exo2_utilisateur.factorielle(n);
+
         System.out.println("La factorielle de " + n + " est " + result);
     }
 
