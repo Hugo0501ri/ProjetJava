@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileModifier {
-    public static void writeToFile(String fileName, String content, int exerciseChoice, int languageChoice) {
+    /*public static void writeToFile(String fileName, String content, int exerciseChoice, int languageChoice) {
         String filePath;
         switch (languageChoice) {
             case 1:
@@ -108,6 +108,13 @@ public class FileModifier {
                 return "c";
             default:
                 return "";
+        }
+    }*/
+    public static void writeToFile(String fileName, String code) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(code);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
