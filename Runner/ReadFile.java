@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-package Runner;
 public class ReadFile extends AbstractExerciseRunner {
 
     public ReadFile(String fileExtension, String filePath) {
