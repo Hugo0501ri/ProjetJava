@@ -8,5 +8,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "vmArgs": "--module-path \"H:/Desktop/Langage/JavaFX/javafx-sdk-22.0.1/lib\" --add-module javafx.controls,javafx.fxml"
+  
 }
