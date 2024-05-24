@@ -1,5 +1,3 @@
-import AbstractExerciseRunner;
-
 package Runner;
 public class PythonExerciseRunner extends AbstractExerciseRunner {
     public PythonExerciseRunner() {

@@ -1,5 +1,3 @@
-import AbstractExerciseRunner;
-
 package Runner;
 public class JavaScriptExerciseRunner extends AbstractExerciseRunner {
     public JavaScriptExerciseRunner() {

@@ -1,3 +1,7 @@
+import CodeRunner;
+import FileModifier;
+
+package Runner;
 public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface {
     protected String fileExtension;
     protected String filePath;
