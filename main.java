@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        StringBuilder pythonCode = new StringBuilder(); // Déclaration de pythonCode
+        StringBuilder pythonCode = new StringBuilder(); 
 
         // Choix de l'exercice
         System.out.println("Choisissez l'exercice :");

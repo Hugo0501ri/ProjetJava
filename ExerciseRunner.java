@@ -123,10 +123,6 @@ public class ExerciseRunner {
                 return new JavaScriptExerciseRunner();
             case 4:
                 return new PHPExerciseRunner();
-            case 5:
-                return new CExerciseRunner();
-            default:
-                return null;
         }
     }
 }
