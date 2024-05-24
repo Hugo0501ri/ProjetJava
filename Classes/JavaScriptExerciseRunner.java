@@ -1,4 +1,6 @@
-package Runner;
+package Classes;
+
+
 
 public class JavaScriptExerciseRunner extends AbstractExerciseRunner {
     public JavaScriptExerciseRunner() {

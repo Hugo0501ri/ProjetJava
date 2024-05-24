@@ -1,4 +1,6 @@
-package Runner;
+package Classes;
+
+
 
 public class PHPExerciseRunner extends AbstractExerciseRunner {
     public PHPExerciseRunner() {

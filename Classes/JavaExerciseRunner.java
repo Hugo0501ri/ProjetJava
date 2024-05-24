@@ -1,4 +1,4 @@
-package Runner;
+package Classes;
 
 public class JavaExerciseRunner extends AbstractExerciseRunner {
     public JavaExerciseRunner() {

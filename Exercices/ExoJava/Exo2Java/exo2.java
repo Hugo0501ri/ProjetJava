@@ -1,3 +1,7 @@
+package Exercices.ExoJava.Exo2Java;
+
+
+
 public class Exo2 {
     public static void exo2(String[] args) {
         int n = Integer.parseInt(args[0]);

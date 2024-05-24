@@ -1,9 +1,8 @@
-package Runner;
+package Classes;
 
 
-import java.io.IOException;
-import CodeRunner;
-import FileModifier;
+
+
 
 
 public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface {
@@ -23,11 +22,11 @@ public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface 
         CodeRunner.runCodeFromFiles(fileNames);
     }
 
-    public String getFileName(int exerciseChoice) {
-        return "Exo" + exerciseChoice + "_utilisateur." + fileExtension;
+    public String getFileName(int exerciseNumber) {
+        return "Exo" + exerciseNumber + "_utilisateur." + fileExtension;
     }
 
-    public String[] getFilePaths(int exerciseChoice) {
-        return new String[]{filePath + "/Exo" + exerciseChoice + "_utilisateur." + fileExtension};
+    public String[] getFilePaths(int exerciseNumber) {
+        return new String[]{filePath + "/Exo" + exerciseNumber + "_utilisateur." + fileExtension};
     }
 }

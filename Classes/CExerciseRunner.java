@@ -1,4 +1,4 @@
-package Runner;
+package Classes;
 
 public class CExerciseRunner extends AbstractExerciseRunner {
     public CExerciseRunner() {

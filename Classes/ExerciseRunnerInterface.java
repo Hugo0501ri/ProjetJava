@@ -1,4 +1,4 @@
-package Runner;
+package Classes;
 
 public interface ExerciseRunnerInterface {
     void compile(String fileName, String code);
