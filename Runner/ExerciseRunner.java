@@ -129,6 +129,7 @@ public class ExerciseRunner {
                 return new CExerciseRunner();
             default:
                 System.out.println("Langage non pris en charge");
+                return null;
         }
     }
 }
