@@ -1,4 +1,9 @@
-<<<<<<< HEAD
-=======
-println("ok");
->>>>>>> fec3899869d6e49bb4854afb6cfcfc2de30869df
+#include <stdlib.h>
+#include <stdio.h>
+int somme(int x, int y){
+	return x+y;
+}
+int main(){
+	printf("%i",somme(2,2));
+	return 0;
+}
