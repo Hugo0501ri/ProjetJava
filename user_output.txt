@@ -1,1 +1,1 @@
-C:\Users\CYTech Student\AppData\Local\Programs\Python\Python311\python.exe: can't open file 'H:\\Desktop\\VRAI PROJET JAVA\\Exercices\\ExoPython\\Exo1_utilisateur.py': [Errno 2] No such file or directory
+C:\Users\CYTech Student\AppData\Local\Programs\Python\Python311\python.exe: can't open file 'H:\\Documents\\ProjetJava\\Exercices\\ExoPython\\Exo1_utilisateur.py': [Errno 2] No such file or directory
