@@ -23,7 +23,7 @@ public class ExerciseRunner {
             saveOutput(fileNames[0], "user_output.txt");
             
             // Exécuter l'exercice original
-            String originalFilePath = runner.getOriginalFilePath(exerciseChoice);
+            String originalFilePath = getOriginalFilePath(exerciseChoice, languageChoice);
             runner.compile(originalFilePath, code);
             runner.execute(new String[]{originalFilePath});
             
@@ -90,23 +90,23 @@ public class ExerciseRunner {
 
     public static String getOriginalFilePath(int exerciseNumber, int languageChoice) {
         String languageExtension = getLanguageExtension(languageChoice);
-        return "Exercices/Exo" + exerciseNumber + "/Exo" + exerciseNumber + languageExtension + "/Exo" + exerciseNumber + languageExtension;
+        return "Exercices/Exo" + languageExtension + "/Exo" + exerciseNumber + languageExtension + "/Exo" + exerciseNumber + "." + languageExtension;
     }
 
     private static String getLanguageExtension(int languageChoice) {
         switch (languageChoice) {
             case 1:
-                return ".py";
+                return "Py"; // Python
             case 2:
-                return ".java";
+                return "Java"; // Java
             case 3:
-                return ".js";
+                return "Js"; // JavaScript
             case 4:
-                return ".php";
+                return "Php"; // PHP
             case 5:
-                return ".c";
+                return "C"; // C
             default:
-                return "";
+                return ""; // Par défaut
         }
     
 }

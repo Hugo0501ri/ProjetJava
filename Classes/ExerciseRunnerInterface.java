@@ -5,5 +5,5 @@ public interface ExerciseRunnerInterface {
     void execute(String[] fileNames);
     String getFileName(int exerciseNumber);
     String[] getFilePaths(int exerciseNumber);
-    String getOriginalFilePath(int exerciseNumber);
+    
 }

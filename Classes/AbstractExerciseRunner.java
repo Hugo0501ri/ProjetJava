@@ -30,7 +30,5 @@ public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface 
         return new String[]{filePath + "/Exo" + exerciseNumber + "_utilisateur." + fileExtension};
     }
 
-    public String getOriginalFilePath(int exerciseNumber) {
-        return filePath + "/Exo" + exerciseNumber + "." + fileExtension;
-    }
+    
 }
