@@ -1,40 +1,46 @@
 package Classes;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+public class ReadFile {
 
-public class ReadFile extends AbstractExerciseRunner {
+    // Méthode pour générer le chemin du fichier en fonction du langage et de l'exercice
+    public String getFilePath(int exerciseChoice, int languageChoice, String fileType) {
+        String baseDir = "Exercices";
+        String filePath = "";
 
-    public ReadFile(String fileExtension, String filePath) {
-        super(fileExtension, filePath);
+        switch (languageChoice) {
+            case 1:
+                filePath = baseDir + "/ExoPython/Exo" + exerciseChoice + "PY/" + fileType + exerciseChoice + "py.txt";
+                break;
+            case 2:
+                filePath = baseDir + "/ExoJava/Exo" + exerciseChoice + "Java/" + fileType + exerciseChoice + "java.txt";
+                break;
+            case 3:
+                filePath = baseDir + "/ExoJavaScript/Exo" + exerciseChoice + "JS/" + fileType + exerciseChoice + "js.txt";
+                break;
+            case 4:
+                filePath = baseDir + "/ExoPHP/Exo" + exerciseChoice + "PHP/" + fileType + exerciseChoice + "php.txt";
+                break;
+            case 5:
+                filePath = baseDir + "/ExoC/Exo" + exerciseChoice + "C/" + fileType + exerciseChoice + "c.txt";
+                break;
+        }
+        return filePath;
     }
 
-    public static void main(String[] args) {
-        ReadFile readFile = new ReadFile("txt", "chemin/du/fichier");
-        int exerciseChoice = 1; // Numéro de l'exercice à lire
-        String fileName = readFile.getFileName(exerciseChoice); // Nom du fichier à lire
-
-        BufferedReader reader = null;
-
-        try {
-            reader = new BufferedReader(new FileReader(fileName));
+    // Méthode pour lire et afficher le contenu du fichier data
+    public void readFileData(String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
+            System.out.println("Contenu de " + filePath + ":");
             while ((line = reader.readLine()) != null) {
-                System.out.println(line); // Affiche chaque ligne du fichier
+                System.out.println(line);
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Gère les exceptions en cas d'erreur de lecture
-        } finally {
-            try {
-                if (reader != null) {
-                    reader.close(); // Ferme le fichier après la lecture
-                }
-            } catch (IOException e) {
-                e.printStackTrace(); // Gère les exceptions en cas d'erreur de fermeture
-            }
+            System.out.println("Erreur lors de la lecture du fichier: " + e.getMessage());
         }
     }
 }

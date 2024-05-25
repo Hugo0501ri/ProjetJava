@@ -1,4 +1,8 @@
+package Classes;
 import java.util.Scanner;
+
+
+
 
 
 public class Main {
@@ -26,6 +30,10 @@ public class Main {
 
         while (true) {
             StringBuilder userCode = new StringBuilder();
+
+            //Lire et afficher le contenu de data.txt
+            String dataFilePath = readFile.getFilePath(exerciseChoice, languageChoice, "data");
+            readFile.readFileData(dataFilePath);
 
             // Récupération du code saisi par l'utilisateur
             System.out.println("Veuillez saisir votre code (appuyez sur Entrée pour terminer la saisie) :");
