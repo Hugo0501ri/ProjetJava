@@ -2,7 +2,9 @@ package Classes;
 
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class JavaExecutor extends AbstractLanguageExecutor {
     @Override
@@ -12,13 +14,6 @@ public class JavaExecutor extends AbstractLanguageExecutor {
         printProcessOutput(compileProcess);
     }
 
-    /*@Override
-    public void execute(String javaFilePath) throws IOException, InterruptedException {
-        String className = javaFilePath.replace(".java", "");
-        ProcessBuilder processBuilder = new ProcessBuilder("java", className);
-        Process process = processBuilder.start();
-        printProcessOutput(process);
-    }*/
 
     public void execute(String javaFilePath) throws IOException, InterruptedException {
         String className = javaFilePath.substring(0, javaFilePath.lastIndexOf('.'));
@@ -26,4 +21,6 @@ public class JavaExecutor extends AbstractLanguageExecutor {
         Process process = processBuilder.start();
         printProcessOutput(process);
     }
+
+    
 }
