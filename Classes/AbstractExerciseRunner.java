@@ -23,11 +23,11 @@ public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface 
     }
 
     public String getFileName(int exerciseChoice) {
-        return "Exo" + exerciseChoice + "_utilisateur." + fileExtension;
+        return filePath + "/Exo" + exerciseChoice + fileExtension + "/Exo" + exerciseChoice + "_utilisateur." + fileExtension;
     }
 
     public String[] getFilePaths(int exerciseChoice) {
-        return new String[]{filePath + "/Exo" + exerciseChoice + "_utilisateur." + fileExtension};
+        return new String[]{filePath + "/Exo" + exerciseChoice + fileExtension + "/Exo" + exerciseChoice + "_utilisateur." + fileExtension};
     }
 
     

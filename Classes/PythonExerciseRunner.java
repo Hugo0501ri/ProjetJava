@@ -4,6 +4,6 @@ package Classes;
 
 public class PythonExerciseRunner extends AbstractExerciseRunner {
     public PythonExerciseRunner() {
-        super("py", "Exercices/ExoPython");
+        super("py", "Exercices/ExoPy");
     }
 }

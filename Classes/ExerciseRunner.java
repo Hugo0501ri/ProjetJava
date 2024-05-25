@@ -30,14 +30,6 @@ public class ExerciseRunner {
             // Sauvegarder la sortie attendue
             saveOutput(originalFilePath, "expected_output.txt");
 
-            // Comparer les sorties
-            boolean result = FileModifier.compareOutputs("user_output.txt", "expected_output.txt");
-
-            if (result) {
-                System.out.println("Votre programme est correct !");
-            } else {
-                System.out.println("Votre programme ne donne pas la sortie attendue.");
-            }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -93,7 +85,7 @@ public class ExerciseRunner {
         return "Exercices/Exo" + languageExtension + "/Exo" + exerciseNumber + languageExtension + "/Exo" + exerciseNumber + "." + languageExtension;
     }
 
-    private static String getLanguageExtension(int languageChoice) {
+    public static String getLanguageExtension(int languageChoice) {
         switch (languageChoice) {
             case 1:
                 return "Py"; // Python
