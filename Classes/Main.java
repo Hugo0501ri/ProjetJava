@@ -49,7 +49,7 @@ public class Main {
         String originalCode = FileModifier.readFileAsString(originalCodePath);
 
         String integratedCode = FileModifier.integrateUserCode(originalCode, userCode.toString(), "// Code utilisateur ici");
-        String userFileName = "Exercice" + exerciseChoice + "_utilisateur.java";
+        String userFileName = "Exo" + exerciseChoice + "_utilisateur." + ExerciseRunner.getLanguageExtension(languageChoice);
         FileModifier.writeToFile(userFileName, integratedCode);
 
         // Exécution et comparaison des sorties
