@@ -4,9 +4,21 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Responsible for reading files.
+ */
+
 public class ReadFile {
 
-    // Méthode pour générer le chemin du fichier en fonction du langage et de l'exercice
+      /**
+     * Gets the file path based on exercise choice, language choice, and file type.
+     *
+     * @param exerciseChoice The choice of exercise.
+     * @param languageChoice The choice of programming language.
+     * @param fileType The type of file to retrieve.
+     * @return The file path.
+     */
+
     public String getFilePath(int exerciseChoice, int languageChoice, String fileType) {
         String baseDir = "Exercices";
         String filePath = "";
@@ -31,7 +43,14 @@ public class ReadFile {
         return filePath;
     }
 
-    // Méthode pour lire et afficher le contenu du fichier data
+    /**
+     * Reads data from the specified file path.
+     *
+     * @param filePath The path of the file to read.
+     * @return The data read from the file.
+     * @throws IOException If an I/O error occurs.
+     */
+
     public void readFileData(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;

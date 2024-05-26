@@ -4,12 +4,19 @@ package Classes;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Responsible for running code from files.
+ */
 
 public class CodeRunner {
     
     /**
-     * @param filePaths
+     * Runs code from multiple files.
+     *
+     * @param filePaths The paths of the files containing the code to run.
+     * @throws IOException If an I/O error occurs.
      */
+
     public static void runCodeFromFiles(String[] filePaths) {
         for (String filePath : filePaths) {
             runCodeFromFile(filePath);
@@ -17,8 +24,12 @@ public class CodeRunner {
     }
 
     /**
-     * @param filePath
+     * Runs code from a single file.
+     *
+     * @param filePath The path of the file containing the code to run.
+     * @throws IOException If an I/O error occurs.
      */
+
     public static void runCodeFromFile(String filePath) {
         File file = new File(filePath);
         if (!file.exists()) {
@@ -43,10 +54,14 @@ public class CodeRunner {
         }
     }
 
+    
     /**
-     * @param fileExtension
-     * @return
+     * Gets the appropriate executor based on the file extension.
+     *
+     * @param fileExtension The file extension of the code file.
+     * @return The language executor for the specified file extension.
      */
+
     private static LanguageExecutor getExecutor(String fileExtension) {
         switch (fileExtension) {
             case "c":
