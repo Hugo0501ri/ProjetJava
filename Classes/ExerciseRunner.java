@@ -9,7 +9,18 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.script.ScriptException;
 
+/**
+ * Coordinates the execution of exercises and comparison of results.
+ */
+
 public class ExerciseRunner {
+
+ /**
+     * Retrieves the comment marker for the specified programming language.
+     *
+     * @param languageChoice The choice of programming language.
+     * @return The comment marker for the specified language.
+     */
 
     public static String getCommentMarker(int languageChoice) {
         switch (languageChoice) {
@@ -27,6 +38,16 @@ public class ExerciseRunner {
                 return "// Code utilisateur ici";
         }
     }
+
+/**
+     * Runs the submitted program and compares it with the reference program.
+     *
+     * @param exerciseChoice The choice of exercise.
+     * @param languageChoice The choice of programming language.
+     * @param integratedFilePath The path to the integrated file.
+     * @param originalFilePath The path to the original file.
+     * @return True if the results match, otherwise false.
+     */
 
     public static boolean runAndCompare(int exerciseChoice, int languageChoice, String integratedFilePath, String originalFilePath) {
         ExerciseRunnerInterface runner = getRunner(languageChoice);
@@ -55,6 +76,12 @@ public class ExerciseRunner {
         }
     }
 
+  /**
+     * Generates random inputs for running the exercises.
+     *
+     * @return A list of string arrays representing the random inputs.
+     */
+
 
     private static List<String[]> generateRandomInputs() {
         List<String[]> inputs = new ArrayList<>();
@@ -67,6 +94,15 @@ public class ExerciseRunner {
 
         return inputs;
     }
+
+ /**
+     * Executes the specified function in the given file with the provided inputs.
+     *
+     * @param runner The exercise runner interface.
+     * @param filePath The path to the file to be executed.
+     * @param inputs The inputs for the function.
+     * @return The result of executing the function.
+     */    
 
     @SuppressWarnings("unused")
     private static String executeFunction(ExerciseRunnerInterface runner, String filePath, String[] inputs) throws IOException, InterruptedException {
@@ -84,6 +120,14 @@ public class ExerciseRunner {
         process.waitFor();
         return output.toString().trim();
     }
+
+ /**
+     * Retrieves the command to execute the file with the specified inputs.
+     *
+     * @param filePath The path to the file to be executed.
+     * @param inputs The inputs for the function.
+     * @return An array of strings representing the execution command.
+     */
 
     private static String[] getCommand(String filePath, String[] inputs) {
         String extension = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
@@ -116,6 +160,12 @@ public class ExerciseRunner {
         return command;
     }
 
+     /**
+     * Retrieves the exercise runner interface for the specified programming language.
+     *
+     * @param languageChoice The choice of programming language.
+     * @return The exercise runner interface for the specified language.
+     */
     public static ExerciseRunnerInterface getRunner(int languageChoice) {
         switch (languageChoice) {
             case 1:
@@ -134,10 +184,24 @@ public class ExerciseRunner {
         }
     }
 
+    /**
+     * Retrieves the original file path for the specified exercise and language.
+     *
+     * @param exerciseNumber The number of the exercise.
+     * @param languageChoice The choice of programming language.
+     * @return The original file path.
+     */
     public static String getOriginalFilePath(int exerciseNumber, int languageChoice) {
         String languageExtension = getLanguageExtension(languageChoice);
         return "Exercices/Exo" + languageExtension + "/Exo" + exerciseNumber + languageExtension + "/Exo" + exerciseNumber + "." + languageExtension;
     }
+
+      /**
+     * Retrieves the file extension for the specified programming language.
+     *
+     * @param languageChoice The choice of programming language.
+     * @return The file extension for the specified language.
+     */
 
     public static String getLanguageExtension(int languageChoice) {
         switch (languageChoice) {
@@ -155,6 +219,14 @@ public class ExerciseRunner {
                 return ""; // Par défaut
         }
     }
+
+
+    /**
+     * Retrieves the programming language corresponding to the specified choice.
+     *
+     * @param languageChoice The choice of programming language.
+     * @return The programming language corresponding to the specified choice.
+     */
 
         private static ProgrammingLanguage getLanguage(int languageChoice) {
         switch (languageChoice) {
@@ -174,10 +246,27 @@ public class ExerciseRunner {
         }
     }
 
+     /**
+     * Extracts the function from the code for the specified programming language.
+     *
+     * @param code The source code.
+     * @param languageChoice The choice of programming language.
+     * @return The extracted function from the code.
+     */
+
     public static String extractFunction(String code, int languageChoice) {
         ProgrammingLanguage language = getLanguage(languageChoice);
         return language.extractFunction(code);
     }
+
+ /**
+     * Calls the specified function with the given arguments for the specified programming language.
+     *
+     * @param functionCode The code of the function to be called.
+     * @param args The arguments for the function.
+     * @param languageChoice The choice of programming language.
+     * @return The result of calling the function.
+     */
 
     public static int callFunction(String functionCode, int[] args, int languageChoice) throws ScriptException, IOException, InterruptedException {
         ProgrammingLanguage language = getLanguage(languageChoice);
