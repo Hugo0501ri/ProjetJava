@@ -1,13 +1,11 @@
 package Classes;
 
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public class PHPExerciseRunner extends AbstractExerciseRunner {
-    public PHPExerciseRunner() {
-        super("php", "Exercices/ExoPhp");
-    }
+public class PHPLanguage extends ProgrammingLanguage {
     @Override
     public String extractFunction(String userCode) {
         // Supposons que la fonction soit définie sur une seule ligne avec le format "function nom_fonction(paramètres) {"

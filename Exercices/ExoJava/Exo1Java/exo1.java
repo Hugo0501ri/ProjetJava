@@ -1,4 +1,4 @@
-public class exo1 {
+public class Exo1 {
     public static void exo1(String[] args) {
         int x = Integer.parseInt(args[0]);
         int y = Integer.parseInt(args[1]);

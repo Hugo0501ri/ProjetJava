@@ -1,1 +1,1 @@
-4
+error: can't find main(String[]) method in class: Exo1

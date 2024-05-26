@@ -4,16 +4,13 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public class PHPExerciseRunner extends AbstractExerciseRunner {
-    public PHPExerciseRunner() {
-        super("php", "Exercices/ExoPhp");
-    }
+public class PythonLanguage extends ProgrammingLanguage {
     @Override
     public String extractFunction(String userCode) {
-        // Supposons que la fonction soit définie sur une seule ligne avec le format "function nom_fonction(paramètres) {"
+        // Supposons que la fonction soit définie sur une seule ligne avec le format "def nom_fonction(paramètres):"
         String[] lines = userCode.split("\\r?\\n");
         for (String line : lines) {
-            if (line.trim().startsWith("function") && line.trim().endsWith("{")) {
+            if (line.trim().startsWith("def")) {
                 return line.trim();
             }
         }
@@ -23,7 +20,7 @@ public class PHPExerciseRunner extends AbstractExerciseRunner {
     @Override
     public int callFunction(String functionCode, int... args) throws ScriptException {
         ScriptEngineManager manager = new ScriptEngineManager();
-        ScriptEngine engine = manager.getEngineByName("php");
+        ScriptEngine engine = manager.getEngineByName("python");
         String script = functionCode + "\n"; // Ajoutez le code de la fonction à exécuter
         for (int arg : args) {
             script += arg + "\n"; // Ajoutez chaque argument sur une nouvelle ligne

@@ -1,18 +1,8 @@
 package Classes;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
-import javax.script.ScriptException;
-
-public class CExerciseRunner extends AbstractExerciseRunner {
-    public CExerciseRunner() {
-        super("c", "Exercices/ExoC");
-    }
+public class CLanguage extends ProgrammingLanguage{
     @Override
     public String extractFunction(String userCode) {
         // Supposons que la fonction soit définie sur une seule ligne avec le format "int nom_fonction(int paramètres) {"
@@ -27,7 +17,7 @@ public class CExerciseRunner extends AbstractExerciseRunner {
 
     @SuppressWarnings("deprecation")
     @Override
-    public int callFunction(String functionCode, int... args) {
+    public int callFunction(String functionCode, int... args) throws IOException, InterruptedException {
         String fileName = "temp.c";
         String command = "gcc -o temp temp.c && ./temp"; // Commande pour compiler et exécuter le fichier C
 
@@ -54,10 +44,5 @@ public class CExerciseRunner extends AbstractExerciseRunner {
 
         return Integer.parseInt(output.toString().trim());
     }
-    @Override
-    public int callFunction(String functionCode, String... inputs)
-            throws ScriptException, IOException, InterruptedException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'callFunction'");
-    }
 }
+

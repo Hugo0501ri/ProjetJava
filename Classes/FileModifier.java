@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+
+
 public class FileModifier {
     public static void writeToFile(String fileName, String code) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -26,13 +28,11 @@ public class FileModifier {
         return originalCode.replace(marker, userCode);
     }
 
-
     public static boolean compareOutputs(String userOutputFile, String expectedOutputFile) throws IOException {
         try (BufferedReader userReader = new BufferedReader(new FileReader(userOutputFile));
              BufferedReader expectedReader = new BufferedReader(new FileReader(expectedOutputFile))) {
 
             String userLine;
-
             String expectedLine = null;
 
             while ((userLine = userReader.readLine()) != null && (expectedLine = expectedReader.readLine()) != null) {
@@ -61,8 +61,9 @@ public class FileModifier {
                 writer.write(line);
                 writer.newLine();
             }
-            
+
             process.waitFor();
         }
     }
 }
+
