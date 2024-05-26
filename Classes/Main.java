@@ -2,14 +2,12 @@ package Classes;
 
 import java.io.IOException;
 import java.util.Scanner;
-
-
-
+import Classes.ExerciseRunner;
+import Classes.FileModifier;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        StringBuilder userCode = new StringBuilder();
 
         // Choix de l'exercice
         System.out.println("Choisissez l'exercice :");
@@ -19,6 +17,13 @@ public class Main {
 
         int exerciseChoice = scanner.nextInt();
         scanner.nextLine(); // Pour consommer la nouvelle ligne restante
+
+        // Création d'une instance de ReadFile
+        ReadFile readFile = new ReadFile();
+
+        // Lire et afficher le contenu de data.txt pour l'exercice choisi
+        String dataFilePath = readFile.getFilePath(exerciseChoice, 1, "data");
+        readFile.readFileData(dataFilePath);
 
         // Choix du langage
         System.out.println("Choisissez le langage :");
@@ -31,44 +36,40 @@ public class Main {
         int languageChoice = scanner.nextInt();
         scanner.nextLine(); // Pour consommer la nouvelle ligne restante
 
-        // Création d'une instance de ExerciseRunner
-        ExerciseRunner exerciseRunner = new ExerciseRunner();
-
-        // Récupération du code saisi par l'utilisateur
-        System.out.println("Veuillez saisir votre code (appuyez sur Entrée pour terminer la saisie) :");
         while (true) {
-            String line = scanner.nextLine();
-            if (line.isEmpty()) {
-                break;
+            StringBuilder userCode = new StringBuilder();
+
+            // Récupération du code saisi par l'utilisateur
+            System.out.println("Veuillez saisir votre code (appuyez sur Entrée pour terminer la saisie) :");
+            while (true) {
+                String line = scanner.nextLine();
+                if (line.isEmpty()) {
+                    break;
+                }
+                userCode.append(line).append("\n");
             }
-            userCode.append(line).append("\n");
-        }
 
-        // Intégration du code utilisateur dans le code original
-        String originalCodePath = ExerciseRunner.getOriginalFilePath(exerciseChoice, languageChoice);
-        String originalCode = FileModifier.readFileAsString(originalCodePath);
+            // Intégration du code utilisateur dans le code original
+            String originalCodePath = ExerciseRunner.getOriginalFilePath(exerciseChoice, languageChoice);
+            String originalCode = FileModifier.readFileAsString(originalCodePath);
 
-        String integratedCode = FileModifier.integrateUserCode(originalCode, userCode.toString(), "// Code utilisateur ici");
-        String userFileName = "Exo" + exerciseChoice + "_utilisateur." + ExerciseRunner.getLanguageExtension(languageChoice);
-        FileModifier.writeToFile(userFileName, integratedCode);
+            String integratedCode = FileModifier.integrateUserCode(originalCode, userCode.toString(), "// Code utilisateur ici");
+            String userFileName = "Exo" + exerciseChoice + "_utilisateur." + ExerciseRunner.getLanguageExtension(languageChoice);
+            FileModifier.writeToFile(userFileName, integratedCode);
 
-        // Exécution et comparaison des sorties
-        ExerciseRunner.runExercise(exerciseChoice, languageChoice, integratedCode);
+            // Exécution et comparaison des sorties
+            ExerciseRunner.runExercise(exerciseChoice, languageChoice, integratedCode);
 
-        // Afficher les résultats à l'utilisateur
-        boolean isCorrect = FileModifier.compareOutputs("expected_output.txt", "user_output.txt");
-        if (isCorrect) {
-            System.out.println("Félicitations! Votre code est correct.");
-        } else {
-            System.out.println("Votre code est incorrect. Veuillez réessayer.");
-        }
+            // Afficher les résultats à l'utilisateur
+            boolean isCorrect = FileModifier.compareOutputs("expected_output.txt", "user_output.txt");
+            if (isCorrect) {
+                System.out.println("Félicitations! Votre code est correct.");
+            } else {
+                System.out.println("Votre code est incorrect. Veuillez réessayer.");
+            }
 
-        scanner.close();
-    }
-            
-
-             // Demander à l'utilisateur s'il souhaite réessayer ou quitter
-         /*   System.out.println("Voulez-vous réessayer ou quitter ? (r/q)");
+            // Demander à l'utilisateur s'il souhaite réessayer ou quitter
+            System.out.println("Voulez-vous réessayer ou quitter ? (r/q)");
             String userResponse = scanner.nextLine();
             if (userResponse.equalsIgnoreCase("q")) {
                 break; // Quitter la boucle et terminer le programme
@@ -76,6 +77,5 @@ public class Main {
         }
 
         scanner.close();
-    }*/
-
+    }
 }

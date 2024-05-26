@@ -13,13 +13,13 @@ public class ReadFile {
 
         switch (languageChoice) {
             case 1:
-                filePath = baseDir + "/ExoPython/Exo" + exerciseChoice + "PY/" + fileType + exerciseChoice + "py.txt";
+                filePath = baseDir + "/ExoPy/Exo" + exerciseChoice + "Py/" + fileType + exerciseChoice + "py.txt";
                 break;
             case 2:
                 filePath = baseDir + "/ExoJava/Exo" + exerciseChoice + "Java/" + fileType + exerciseChoice + "java.txt";
                 break;
             case 3:
-                filePath = baseDir + "/ExoJavaScript/Exo" + exerciseChoice + "JS/" + fileType + exerciseChoice + "js.txt";
+                filePath = baseDir + "/ExoJs/Exo" + exerciseChoice + "JS/" + fileType + exerciseChoice + "js.txt";
                 break;
             case 4:
                 filePath = baseDir + "/ExoPHP/Exo" + exerciseChoice + "PHP/" + fileType + exerciseChoice + "php.txt";
