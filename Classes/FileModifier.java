@@ -96,12 +96,12 @@ public class FileModifier {
              BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()))) {
 
             String line;
-            // Lire et sauvegarder la sortie standard
+            // Read and save standard output
             while ((line = outputReader.readLine()) != null) {
                 writer.write(line);
                 writer.newLine();
             }
-            // Lire et sauvegarder la sortie d'erreur
+            // Read and save error output
             while ((line = errorReader.readLine()) != null) {
                 writer.write(line);
                 writer.newLine();

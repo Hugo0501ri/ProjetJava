@@ -8,7 +8,7 @@ import java.io.IOException;
 public class JavaScriptExecutor extends AbstractLanguageExecutor {
     @Override
     public void compile(String jsFilePath) {
-        // Pas de compilation nécessaire pour JavaScript
+        // No compilation required for JavaScript
     }
 
     @Override

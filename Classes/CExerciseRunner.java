@@ -15,32 +15,32 @@ public class CExerciseRunner extends AbstractExerciseRunner {
     }
     @Override
     public String extractFunction(String userCode) {
-        // Supposons que la fonction soit définie sur une seule ligne avec le format "int nom_fonction(int paramètres) {"
+        // Suppose the function is defined on a single line with the format “int function_name(int parameters) {”.
         String[] lines = userCode.split("\\r?\\n");
         for (String line : lines) {
             if (line.trim().startsWith("int") && line.trim().endsWith("{")) {
                 return line.trim();
             }
         }
-        return null; // Retourne null si aucune fonction n'est trouvée
+        return null; // Returns null if no function is found
     }
 
     @SuppressWarnings("deprecation")
     @Override
     public int callFunction(String functionCode, int... args) {
         String fileName = "temp.c";
-        String command = "gcc -o temp temp.c && ./temp"; // Commande pour compiler et exécuter le fichier C
+        String command = "gcc -o temp temp.c && ./temp"; // Command to compile and execute the C file
 
-        // Écriture du code dans un fichier temporaire
+        // Write code to a temporary file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write(functionCode);
         }
 
-        // Compilation et exécution du fichier C
+        // Compile and run the C file
         Process process = Runtime.getRuntime().exec(command);
         process.waitFor();
 
-        // Lecture de la sortie du processus
+        // Read process output
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line;
         StringBuilder output = new StringBuilder();
@@ -48,7 +48,7 @@ public class CExerciseRunner extends AbstractExerciseRunner {
             output.append(line);
         }
 
-        // Suppression du fichier temporaire
+        // Delete temporary file
         File file = new File(fileName);
         file.delete();
 

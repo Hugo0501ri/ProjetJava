@@ -57,10 +57,10 @@ public class ExerciseRunner {
         }
 
         try {
-            // L'extraction de la fonction à partir du code utilisateur
+            // Extract the function from the user code
             String userFunction = extractFunction(FileModifier.readFileAsString(integratedFilePath), languageChoice);
 
-            // L'appel de la fonction extraite avec des entrées aléatoires
+            // Call the extracted function with random inputs
             List<String[]> randomInputs = generateRandomInputs();
             for (String[] inputs : randomInputs) {
                 int userOutput = callFunction(userFunction, inputs, languageChoice);
@@ -87,7 +87,7 @@ public class ExerciseRunner {
         List<String[]> inputs = new ArrayList<>();
         Random random = new Random();
         
-        for (int i = 0; i < 10; i++) { // Générer 10 ensembles de valeurs aléatoires
+        for (int i = 0; i < 10; i++) { // Generate 10 sets of random values
             String[] input = {String.valueOf(random.nextInt(100)), String.valueOf(random.nextInt(100))};
             inputs.add(input);
         }
@@ -109,7 +109,7 @@ public class ExerciseRunner {
         ProcessBuilder processBuilder = new ProcessBuilder(getCommand(filePath, inputs));
         Process process = processBuilder.start();
 
-        // Lire la sortie du processus
+        // Read the output of the process
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         StringBuilder output = new StringBuilder();
         String line;
@@ -152,7 +152,7 @@ public class ExerciseRunner {
                 throw new IllegalArgumentException("Unsupported file extension: " + extension);
         }
 
-        // Ajouter les arguments à la commande de base
+        // Add the arguments to the base command
         String[] command = new String[baseCommand.length + inputs.length];
         System.arraycopy(baseCommand, 0, command, 0, baseCommand.length);
         System.arraycopy(inputs, 0, command, baseCommand.length, inputs.length);

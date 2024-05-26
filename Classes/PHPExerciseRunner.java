@@ -10,23 +10,22 @@ public class PHPExerciseRunner extends AbstractExerciseRunner {
     }
     @Override
     public String extractFunction(String userCode) {
-        // Supposons que la fonction soit définie sur une seule ligne avec le format "function nom_fonction(paramètres) {"
-        String[] lines = userCode.split("\\r?\\n");
+        // Suppose the function is defined on a single line with the format “function_name(parameters) {”.
         for (String line : lines) {
             if (line.trim().startsWith("function") && line.trim().endsWith("{")) {
                 return line.trim();
             }
         }
-        return null; // Retourne null si aucune fonction n'est trouvée
+        return null; // Returns null if no function is found
     }
 
     @Override
     public int callFunction(String functionCode, int... args) throws ScriptException {
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("php");
-        String script = functionCode + "\n"; // Ajoutez le code de la fonction à exécuter
+        String script = functionCode + "\n"; // Add the code of the function to be executed
         for (int arg : args) {
-            script += arg + "\n"; // Ajoutez chaque argument sur une nouvelle ligne
+            script += arg + "\n"; // Add each argument on a new line
         }
         return (int) engine.eval(script);
     }

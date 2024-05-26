@@ -10,23 +10,23 @@ public class JavaExerciseRunner extends AbstractExerciseRunner {
     }
     @Override
     public String extractFunction(String userCode) {
-        // Supposons que la fonction soit définie sur une seule ligne avec le format "public int nom_fonction(int paramètres)"
+        // Suppose the function is defined on a single line with the format “public int function_name(int parameters)”.
         String[] lines = userCode.split("\\r?\\n");
         for (String line : lines) {
             if (line.trim().startsWith("public") && line.trim().endsWith("{")) {
                 return line.trim();
             }
         }
-        return null; // Retourne null si aucune fonction n'est trouvée
+        return null;// Returns null if no function is found
     }
 
     @Override
     public int callFunction(String functionCode, int... args) throws ScriptException {
         ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("java");
-        String script = functionCode + "\n"; // Ajoutez le code de la fonction à exécuter
+        String script = functionCode + "\n"; // Add the code for the function to be executed
         for (int arg : args) {
-            script += arg + "\n"; // Ajoutez chaque argument sur une nouvelle ligne
+            script += arg + "\n"; // Add each argument on a new line
         }
         return (int) engine.eval(script);
     }
