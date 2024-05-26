@@ -1,4 +1,0 @@
-<<<<<<< HEAD
-error: can't find main(String[]) method in class: Exo1
-=======
->>>>>>> fbbc92bf09402fb8d2c5c76e4f30c4e4d288ffa0

@@ -1,7 +1,9 @@
+package Exercices.ExoJava.Exo3Java;
+
 
 import java.util.Scanner;
 
-public class Main {
+public class Exo3 {
     public static boolean isEven(int number) {
         return number % 2 == 0;
     }
