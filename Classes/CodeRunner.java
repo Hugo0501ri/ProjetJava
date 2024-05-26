@@ -7,12 +7,18 @@ import java.io.IOException;
 
 public class CodeRunner {
     
+    /**
+     * @param filePaths
+     */
     public static void runCodeFromFiles(String[] filePaths) {
         for (String filePath : filePaths) {
             runCodeFromFile(filePath);
         }
     }
 
+    /**
+     * @param filePath
+     */
     public static void runCodeFromFile(String filePath) {
         File file = new File(filePath);
         if (!file.exists()) {
@@ -37,6 +43,10 @@ public class CodeRunner {
         }
     }
 
+    /**
+     * @param fileExtension
+     * @return
+     */
     private static LanguageExecutor getExecutor(String fileExtension) {
         switch (fileExtension) {
             case "c":
