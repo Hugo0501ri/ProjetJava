@@ -13,6 +13,7 @@ public class Main {
         System.out.println("Choisissez l'exercice :");
         System.out.println("1. Exercice 1");
         System.out.println("2. Exercice 2");
+        System.out.println("3. Exercice 3");
         // Ajoutez d'autres exercices au besoin
 
         int exerciseChoice = scanner.nextInt();
@@ -22,8 +23,10 @@ public class Main {
         ReadFile readFile = new ReadFile();
 
         // Lire et afficher le contenu de data.txt pour l'exercice choisi
+        System.out.println("\nA propos de l'exercice n° " + exerciseChoice +" :\n");
         String dataFilePath = readFile.getFilePath(exerciseChoice, 1, "data");
         readFile.readFileData(dataFilePath);
+        System.out.println("\n");
 
         // Choix du langage
         System.out.println("Choisissez le langage :");

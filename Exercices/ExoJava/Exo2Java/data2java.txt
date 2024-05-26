@@ -1,0 +1,1 @@
+Cet exercice demande de coder la fonction factorielle qui prend en entrée un nombre n et renvoie n!

@@ -35,7 +35,6 @@ public class ReadFile {
     public void readFileData(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            System.out.println("Contenu de " + filePath + ":");
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }

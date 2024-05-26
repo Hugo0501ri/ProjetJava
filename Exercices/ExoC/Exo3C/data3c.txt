@@ -1,0 +1,1 @@
+Cet exercice demande un entier et vérifie si il est pair
