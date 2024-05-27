@@ -28,22 +28,7 @@ public class FileModifier {
         return originalCode.replace(marker, userCode);
     }
 
-    public static boolean compareOutputs(String userOutputFile, String expectedOutputFile) throws IOException {
-        try (BufferedReader userReader = new BufferedReader(new FileReader(userOutputFile));
-             BufferedReader expectedReader = new BufferedReader(new FileReader(expectedOutputFile))) {
-
-            String userLine;
-            String expectedLine = null;
-
-            while ((userLine = userReader.readLine()) != null && (expectedLine = expectedReader.readLine()) != null) {
-                if (!userLine.equals(expectedLine)) {
-                    return false;
-                }
-            }
-
-            return userLine == null && expectedLine == null;
-        }
-    }
+    
 
     public static void saveOutput(Process process, String outputFile) throws IOException, InterruptedException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));

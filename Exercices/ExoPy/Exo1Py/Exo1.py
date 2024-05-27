@@ -1,7 +1,7 @@
-import math
-
-def sommeDeDeuxNombres(x,y):
-    return x+y
+def sommeDeDeuxNombres(x, y):
+    print(x+y)
+    return()
+    
 
 
 

@@ -1,9 +1,7 @@
 package Classes;
 
-
-
-
-
+import java.io.IOException;
+import java.util.List;
 
 public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface {
     protected String fileExtension;
@@ -30,5 +28,7 @@ public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface 
         return new String[]{filePath + "/Exo" + exerciseChoice + fileExtension + "/Exo" + exerciseChoice + "_utilisateur." + fileExtension};
     }
 
-    
+       // This method should be implemented by subclasses
+    public abstract Object executeWithInputs(String filePath, String[] inputs) throws IOException, InterruptedException;
 }
+

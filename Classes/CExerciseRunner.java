@@ -1,63 +1,53 @@
 package Classes;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import javax.script.ScriptException;
+import java.util.List;
 
 public class CExerciseRunner extends AbstractExerciseRunner {
     public CExerciseRunner() {
         super("c", "Exercices/ExoC");
     }
+
     @Override
-    public String extractFunction(String userCode) {
-        // Supposons que la fonction soit définie sur une seule ligne avec le format "int nom_fonction(int paramètres) {"
-        String[] lines = userCode.split("\\r?\\n");
-        for (String line : lines) {
-            if (line.trim().startsWith("int") && line.trim().endsWith("{")) {
-                return line.trim();
-            }
+    public Object executeWithInputs(String filePath, String[] inputs) throws IOException, InterruptedException {
+        // Compilation du fichier C en un exécutable
+        String executablePath = filePath.substring(0, filePath.lastIndexOf('.')) + ".exe";
+        Process compileProcess = Runtime.getRuntime().exec("gcc " + filePath + " -o " + executablePath);
+        compileProcess.waitFor();
+
+        // Création du processus pour exécuter l'exécutable
+        Process process = Runtime.getRuntime().exec(executablePath);
+
+        // Récupération du flux de sortie
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+        // Ecriture des inputs dans le flux d'entrée du processus
+        for (Object input : inputs) {
+            process.getOutputStream().write(input.toString().getBytes());
+            process.getOutputStream().write(System.lineSeparator().getBytes());
         }
-        return null; // Retourne null si aucune fonction n'est trouvée
-    }
+        process.getOutputStream().flush();
+        process.getOutputStream().close();
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public int callFunction(String functionCode, int... args) {
-        String fileName = "temp.c";
-        String command = "gcc -o temp temp.c && ./temp"; // Commande pour compiler et exécuter le fichier C
-
-        // Écriture du code dans un fichier temporaire
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.write(functionCode);
+        // Récupération du résultat de l'exécution
+        StringBuilder result = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            result.append(line).append(System.lineSeparator());
         }
 
-        // Compilation et exécution du fichier C
-        Process process = Runtime.getRuntime().exec(command);
+        // Attente de la fin de l'exécution du processus
         process.waitFor();
 
-        // Lecture de la sortie du processus
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        String line;
-        StringBuilder output = new StringBuilder();
-        while ((line = reader.readLine()) != null) {
-            output.append(line);
-        }
+        // Fermeture des flux
+        reader.close();
 
-        // Suppression du fichier temporaire
-        File file = new File(fileName);
-        file.delete();
-
-        return Integer.parseInt(output.toString().trim());
-    }
-    @Override
-    public int callFunction(String functionCode, String... inputs)
-            throws ScriptException, IOException, InterruptedException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'callFunction'");
+        // Retour du résultat
+        return result.toString();
     }
 }
+
+
+    

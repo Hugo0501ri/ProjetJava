@@ -1,6 +1,7 @@
 package Classes;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.script.ScriptException;
 
@@ -9,7 +10,7 @@ public interface ExerciseRunnerInterface {
     void execute(String[] fileNames);
     String getFileName(int exerciseNumber);
     String[] getFilePaths(int exerciseNumber);
-    String extractFunction(String userCode);
-    int callFunction(String functionCode, String... inputs) throws ScriptException, IOException, InterruptedException;
+    Object executeWithInputs(String filePath, String[] inputsArray) throws IOException, InterruptedException;
+    
 }
 

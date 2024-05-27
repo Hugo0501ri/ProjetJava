@@ -1,11 +1,5 @@
 public class Exo1 {
-    public static void exo1(String[] args) {
-        int x = Integer.parseInt(args[0]);
-        int y = Integer.parseInt(args[1]);
-        int result = sommeDeDeuxNombres(x, y);
-        System.out.println("La somme de " + x + " et " + y + " est " + result);
-    }
-
+    // Fonction de somme de deux nombres
     public static int sommeDeDeuxNombres(int x, int y) {
         return x + y;
     }
