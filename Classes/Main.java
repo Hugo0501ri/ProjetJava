@@ -63,6 +63,15 @@ public class Main {
             System.out.println("Votre code est incorrect. Veuillez réessayer.");
         }
 
+        while (true) {
+            System.out.print("Voulez-vous réessayer? (oui/non): ");
+            String response = scanner.nextLine();
+            if (!response.equalsIgnoreCase("oui")) {
+                break;
+            }
+        }
+
         scanner.close();
     }
+
 }
