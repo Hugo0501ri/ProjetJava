@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.script.ScriptException;
 
+/**
+ * Coordinates the execution of exercises and comparison of results.
+ */
+
 public class ExerciseRunner {
 
     public static boolean compareOutputs(int exerciseChoice, int languageChoice, String userFilePath, String originalFilePath) {
@@ -66,6 +70,12 @@ public class ExerciseRunner {
     
     
 
+  /**
+     * Generates random inputs for running the exercises.
+     *
+     * @return A list of string arrays representing the random inputs.
+     */
+
 
     public static ExerciseRunnerInterface getRunner(int languageChoice) {
         switch (languageChoice) {
@@ -85,10 +95,24 @@ public class ExerciseRunner {
         }
     }
 
+    /**
+     * Retrieves the original file path for the specified exercise and language.
+     *
+     * @param exerciseNumber The number of the exercise.
+     * @param languageChoice The choice of programming language.
+     * @return The original file path.
+     */
     public static String getOriginalFilePath(int exerciseNumber, int languageChoice) {
         String languageExtension = getLanguageExtension(languageChoice);
         return "Exercices/Exo" + languageExtension + "/Exo" + exerciseNumber + languageExtension + "/Exo" + exerciseNumber + "." + languageExtension;
     }
+
+      /**
+     * Retrieves the file extension for the specified programming language.
+     *
+     * @param languageChoice The choice of programming language.
+     * @return The file extension for the specified language.
+     */
 
     public static String getLanguageExtension(int languageChoice) {
         switch (languageChoice) {
@@ -111,7 +135,7 @@ public class ExerciseRunner {
 
     
     
-    // Méthode utilitaire pour convertir un tableau de chaînes en un tableau d'entiers
+
     
 
 }

@@ -5,7 +5,7 @@ import java.io.IOException;
 public class PythonExecutor extends AbstractLanguageExecutor {
     @Override
     public void compile(String pythonFilePath) {
-        // Pas de compilation nécessaire pour Python
+        // No compilation required for Python
     }
 
     @Override

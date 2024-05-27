@@ -5,7 +5,7 @@ import java.io.IOException;
 public class PHPExecutor extends AbstractLanguageExecutor {
     @Override
     public void compile(String phpFilePath) {
-        // Pas de compilation nécessaire pour PHP
+        // No compilation required for PHP
     }
 
     @Override
