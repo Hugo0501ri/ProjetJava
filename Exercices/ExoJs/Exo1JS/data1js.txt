@@ -1,1 +1,2 @@
-Cet exercice demande de coder une fonction qui prend en entrée 2 variables et renvoie la somme de ces deux variables
+Cet exercice demande de coder une fonction en JavaScript qui prend en entrée 2 variables et renvoie la somme de ces deux variables.
+Vous testerez la fonction pour (x,y) = (2,2), (x,y) = (7,3) et (x,y) = (1,6).

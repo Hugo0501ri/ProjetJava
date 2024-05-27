@@ -28,7 +28,8 @@ public class Main {
 
         int languageChoice = scanner.nextInt();
         scanner.nextLine();
-
+        String dataFilePath = ReadFile.getFilePath(exerciseChoice, languageChoice, "data" );
+        ReadFile.readFileData(dataFilePath);
         System.out.println("Veuillez saisir votre code (appuyez sur Entrée pour terminer la saisie) :");
         while (true) {
             String line = scanner.nextLine();

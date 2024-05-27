@@ -19,7 +19,7 @@ public class ReadFile {
      * @return The file path.
      */
 
-    public String getFilePath(int exerciseChoice, int languageChoice, String fileType) {
+    public static String getFilePath(int exerciseChoice, int languageChoice, String fileType) {
         String baseDir = "Exercices";
         String filePath = "";
 
@@ -51,7 +51,7 @@ public class ReadFile {
      * @throws IOException If an I/O error occurs.
      */
 
-    public void readFileData(String filePath) {
+    public static void readFileData(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
