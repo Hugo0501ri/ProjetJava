@@ -1,8 +1,8 @@
 public class Exo1_utilisateur{
-	public static void exo1(String[] args){
-		System.out.println(sommeDeDeuxNombres(2,2) + " " + sommeDeDeuxNombres(7,3) + " " + sommeDeDeuxNombres(1,6));
+	public static void exo1_utilisateur(){
+		System.out.println(somme(2,2)+ " " + somme(7,3) + " " + somme(1,6));
 	}
-	public static int sommeDeDeuxNombres(int x, int y){
-		return x+y;
+	public static int somme(int x, int y){
+		return x + y;
 	}
 }

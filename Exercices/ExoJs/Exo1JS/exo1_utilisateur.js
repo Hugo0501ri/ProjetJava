@@ -1,4 +1,4 @@
-function sommeDeDeuxNimbres(x,y){
+function somme(x,y){
 	return x+y;
 }
-console.log(sommmeDeDeuxNombres(2,2) + " " + sommeDeDeuxNombres(7,3) + " " + sommeDeDeuxNombres(1,6));
+console.log(somme(2,2) + " " + somme(7,3) + " " + somme(1,6));

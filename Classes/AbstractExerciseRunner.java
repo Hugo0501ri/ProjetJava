@@ -24,10 +24,6 @@ public abstract class AbstractExerciseRunner implements ExerciseRunnerInterface 
         return filePath + "/Exo" + exerciseChoice + fileExtension + "/Exo" + exerciseChoice + "_utilisateur." + fileExtension;
     }
 
-    public String[] getFilePaths(int exerciseChoice) {
-        return new String[]{filePath + "/Exo" + exerciseChoice + fileExtension + "/Exo" + exerciseChoice + "_utilisateur." + fileExtension};
-    }
-
        // This method should be implemented by subclasses
     public abstract Object executeWithInputs(String filePath, String[] inputs) throws IOException, InterruptedException;
 }

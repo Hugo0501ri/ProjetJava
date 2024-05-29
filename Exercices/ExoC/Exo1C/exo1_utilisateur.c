@@ -1,21 +1,8 @@
 #include <stdio.h>
-
-double sommeDeDeuxNombres(double x, double y) {
-    return x + y;
+int somme(int x, int y){
+	return x+y;
 }
-
-int main() {
-    double a, b, result;
-    
-    printf("Entrez le premier nombre: ");
-    scanf("%lf", &a);
-    
-    printf("Entrez le deuxième nombre: ");
-    scanf("%lf", &b);
-
-    result = sommeDeDeuxNombres(a, b);
-
-    printf("La somme de %lf et %lf est %lf\n", a, b, result);
-    
-    return 0;
+int main(){
+	printf("%d %d %d", somme(2,2),somme(7,3),somme(1,6));
+	return 0;
 }
