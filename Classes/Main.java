@@ -45,18 +45,18 @@ public class Main {
                 return;
             }
 
-            // Obtention du chemin du fichier intégré
+            // Get the path to the embedded file
             String integratedFilePath = runner.getFileName(exerciseChoice);
             AdditionalCodeInterface codeGenerator = new AdditionalCode();
             String additionalCode = codeGenerator.getAdditionalCode(exerciseChoice,languageChoice);
 
-            // Écriture du code utilisateur dans le fichier intégré
+            // Write user code to embedded file
             FileModifier.writeCodeToFile(integratedFilePath, userCode.toString(), additionalCode);
 
-            // Obtention du chemin du fichier original
+            // Get the path to the original file
             String originalFilePath = ExerciseRunner.getOriginalFilePath(exerciseChoice, languageChoice);
 
-            // Compilation (si nécessaire) et exécution du code utilisateur
+            // Compile (if necessary) and execute user code
             boolean isCorrect = ExerciseRunner.compareOutputs(exerciseChoice, languageChoice, integratedFilePath, originalFilePath);
 
             if (isCorrect) {
@@ -65,11 +65,11 @@ public class Main {
                 System.out.println("Votre code est incorrect. Veuillez réessayer.");
             }
 
-            // Demander à l'utilisateur s'il souhaite réessayer ou quitter
+            /// Ask user to retry or exit
             System.out.println("Voulez-vous réessayer ou quitter ? (r/q)");
             String userResponse = scanner.nextLine();
             if (userResponse.equalsIgnoreCase("q")) {
-                break; // Quitter la boucle et terminer le programme
+                break; // Exit the loop and terminate the program
             }
         }
 

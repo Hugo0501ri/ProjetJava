@@ -13,16 +13,16 @@ public class PHPExerciseRunner extends AbstractExerciseRunner {
 
     @Override
     public Object executeWithInputs(String filePath, String[] inputs) throws IOException, InterruptedException {
-        // Création de la commande pour exécuter le script PHP avec PHP
+        // Create command to execute PHP script with PHP
         String command = "php " + filePath;
 
-        // Création du processus
+        // Process creation
         Process process = Runtime.getRuntime().exec(command);
 
-        // Récupération du flux de sortie
+        // Output stream recovery
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-        // Ecriture des inputs dans le flux d'entrée du processus
+        // Write inputs in the process input stream
         for (Object input : inputs) {
             process.getOutputStream().write(input.toString().getBytes());
             process.getOutputStream().write(System.lineSeparator().getBytes());
@@ -30,20 +30,20 @@ public class PHPExerciseRunner extends AbstractExerciseRunner {
         process.getOutputStream().flush();
         process.getOutputStream().close();
 
-        // Récupération du résultat de l'exécution
+        // Retrieve execution result
         StringBuilder result = new StringBuilder();
         String line;
         while ((line = reader.readLine()) != null) {
             result.append(line).append(System.lineSeparator());
         }
 
-        // Attente de la fin de l'exécution du processus
+        // Retrieve execution result
         process.waitFor();
 
-        // Fermeture des flux
+        // Closing flows
         reader.close();
 
-        // Retour du résultat
+        // Result feedback
         return result.toString();
     }
 }

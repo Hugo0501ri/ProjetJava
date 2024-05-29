@@ -2,7 +2,7 @@ package Classes;
 
 import java.util.*;
 
-// Interface représentant un exercice
+// Interface representing an exercise
 public interface Exercise {
     List<Object> generateInputs();
 }

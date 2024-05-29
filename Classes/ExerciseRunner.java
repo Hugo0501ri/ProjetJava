@@ -24,18 +24,18 @@ public class ExerciseRunner {
         }
     
         try {
-            // Exécution des programmes avec les entrées aléatoires et comparaison des sorties
+            // Run programs with random inputs and compare outputs
             ExerciseInputConfig inputConfig = new ExerciseInputConfig();
             List<String[]> inputs = inputConfig.getInputsForExercise(exerciseChoice);
     
             for (int i = 0; i < inputs.size(); i++) {
                 String[] inputsArray = inputs.get(i);
     
-                // Conversion explicite de type
+                // Explicit type conversion
                 String userOutput = (String) runner.executeWithInputs(userFilePath, inputsArray);
                 String originalOutput = (String) runner.executeWithInputs(originalFilePath, inputsArray);
     
-                // Vérification des sorties
+                // Output check
                 System.out.println("Sortie utilisateur pour l'entrée " + i + ": " + userOutput);
                 System.out.println("Sortie originale pour l'entrée " + i + ": " + originalOutput);
     
@@ -43,7 +43,7 @@ public class ExerciseRunner {
                     return false;
                 }
     
-                // Enregistrer les sorties dans des fichiers
+                // Save output to files
                 FileModifier.writeToFile("user_output_" + i + ".txt", userOutput);
                 FileModifier.writeToFile("expected_output_" + i + ".txt", originalOutput);
             }

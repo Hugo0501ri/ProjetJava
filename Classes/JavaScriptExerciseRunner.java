@@ -12,12 +12,12 @@ public class JavaScriptExerciseRunner extends AbstractExerciseRunner {
     
     @Override
     public Object executeWithInputs(String filePath, String[] inputs) throws IOException, InterruptedException {
-        // Compilation du fichier Java
+        // Compiling the Java file
         String compileCommand = "javac " + filePath;
         Process compileProcess = Runtime.getRuntime().exec(compileCommand);
         compileProcess.waitFor();
 
-        // Vérifiez si la compilation a échoué
+        // Check if compilation failed
         if (compileProcess.exitValue() != 0) {
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(compileProcess.getErrorStream()));
             String line;
@@ -25,46 +25,46 @@ public class JavaScriptExerciseRunner extends AbstractExerciseRunner {
                 System.err.println(line);
             }
             errorReader.close();
-            return null; // Indiquer l'échec de la compilation
+            return null; // Indicate compilation failure
         }
 
-        // Création de la commande pour exécuter le fichier Java avec Java Runtime
+        // Create command to run Java file with Java Runtime
         String command = "java " + filePath.substring(0, filePath.lastIndexOf('.'));
 
-        // Création du processus
+        // Process creation
         Process process = Runtime.getRuntime().exec(command);
 
-        // Ecriture des inputs dans le flux d'entrée du processus
+        // Write inputs in the process input stream
         for (String input : inputs) {
             process.getOutputStream().write((input + System.lineSeparator()).getBytes());
         }
         process.getOutputStream().flush();
         process.getOutputStream().close();
 
-        // Récupération du flux de sortie
+        // Output stream recovery
         BufferedReader outputReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
-        // Récupération du résultat de l'exécution
+        // Retrieve execution result
         StringBuilder result = new StringBuilder();
         String line;
         while ((line = outputReader.readLine()) != null) {
             result.append(line).append(System.lineSeparator());
         }
 
-        // Lire les erreurs s'il y en a
+        // Read errors if any
         while ((line = errorReader.readLine()) != null) {
             System.err.println(line);
         }
 
-        // Attente de la fin de l'exécution du processus
+        // Wait for process execution to finish
         process.waitFor();
 
-        // Fermeture des flux
+        // Closing flows
         outputReader.close();
         errorReader.close();
 
-        // Retour du résultat
+        // Result feedback
         return result.toString();
     }
 }

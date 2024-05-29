@@ -11,16 +11,16 @@ public class PythonExerciseRunner extends AbstractExerciseRunner {
     }
     @Override
     public Object executeWithInputs(String filePath, String[] inputs) throws IOException, InterruptedException {
-        // Création de la commande pour exécuter le fichier Python avec Python
+        // Create command to execute Python file with Python
         String command = "py " + filePath;
 
-        // Création du processus
+        // Output stream recovery
         Process process = Runtime.getRuntime().exec(command);
 
-        // Récupération du flux de sortie
+        // Output stream recovery
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-        // Ecriture des inputs dans le flux d'entrée du processus
+        // Write inputs in the process input stream
         for (Object input : inputs) {
             process.getOutputStream().write(input.toString().getBytes());
             process.getOutputStream().write(System.lineSeparator().getBytes());
@@ -28,20 +28,20 @@ public class PythonExerciseRunner extends AbstractExerciseRunner {
         process.getOutputStream().flush();
         process.getOutputStream().close();
 
-        // Récupération du résultat de l'exécution
+        // Retrieve execution result
         StringBuilder result = new StringBuilder();
         String line;
         while ((line = reader.readLine()) != null) {
             result.append(line).append(System.lineSeparator());
         }
 
-        // Attente de la fin de l'exécution du processus
+        // Wait for process execution to finish
         process.waitFor();
 
-        // Fermeture des flux
+        // Closing flows
         reader.close();
 
-        // Retour du résultat
+        // Result feedback
         return result.toString();
     }
 }
