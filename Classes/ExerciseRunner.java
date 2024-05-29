@@ -30,20 +30,15 @@ public class ExerciseRunner {
     
             for (int i = 0; i < inputs.size(); i++) {
                 String[] inputsArray = inputs.get(i);
-                // Exécution du code utilisateur
-                Object userOutputObject = runner.executeWithInputs(userFilePath, inputsArray);
-                // Exécution du code original
-                Object originalOutputObject = runner.executeWithInputs(originalFilePath, inputsArray);
-                
-                // Conversion des sorties en chaînes de caractères pour l'enregistrement dans les fichiers
-                String userOutput = userOutputObject != null ? userOutputObject.toString() : "";
-                String originalOutput = originalOutputObject != null ? originalOutputObject.toString() : "";
     
-                // Vérification des sorties dans la console (à des fins de débogage)
+                // Conversion explicite de type
+                String userOutput = (String) runner.executeWithInputs(userFilePath, inputsArray);
+                String originalOutput = (String) runner.executeWithInputs(originalFilePath, inputsArray);
+    
+                // Vérification des sorties
                 System.out.println("Sortie utilisateur pour l'entrée " + i + ": " + userOutput);
                 System.out.println("Sortie originale pour l'entrée " + i + ": " + originalOutput);
     
-                // Comparaison des sorties
                 if (!userOutput.equals(originalOutput)) {
                     return false;
                 }

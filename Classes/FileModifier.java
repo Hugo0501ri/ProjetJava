@@ -24,8 +24,18 @@ public class FileModifier {
      */
     
     public static void writeToFile(String fileName, String code) {
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             writer.write(code);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void writeCodeToFile(String fileName, String userCode, String additionalCode) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(userCode);
+            writer.write(additionalCode);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -47,9 +47,11 @@ public class Main {
 
             // Obtention du chemin du fichier intégré
             String integratedFilePath = runner.getFileName(exerciseChoice);
+            AdditionalCodeInterface codeGenerator = new AdditionalCode();
+            String additionalCode = codeGenerator.getAdditionalCode(exerciseChoice,languageChoice);
 
             // Écriture du code utilisateur dans le fichier intégré
-            FileModifier.writeToFile(integratedFilePath, userCode.toString());
+            FileModifier.writeCodeToFile(integratedFilePath, userCode.toString(), additionalCode);
 
             // Obtention du chemin du fichier original
             String originalFilePath = ExerciseRunner.getOriginalFilePath(exerciseChoice, languageChoice);
