@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  * Abstract base class for language executors.
+ * returns whether there is an error or not
  */
 
 public abstract class AbstractLanguageExecutor implements LanguageExecutor {
